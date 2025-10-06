@@ -1,0 +1,60 @@
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+
+public class Calculadora {
+
+    public static void main(String[] args) {
+        try {
+            String s1 = JOptionPane.showInputDialog(null, "Digite o primeiro número:");
+            if (s1 == null) return; // usuário cancelou
+            String s2 = JOptionPane.showInputDialog(null, "Digite o segundo número:");
+            if (s2 == null) return;
+
+            double n1 = Double.parseDouble(s1.trim());
+            double n2 = Double.parseDouble(s2.trim());
+
+            String[] opcoes = { "+", "-", "×", "÷" };
+            int escolha = JOptionPane.showOptionDialog(
+                    null,
+                    "Escolha a operação:",
+                    "Operação",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    opcoes,
+                    opcoes[0]);
+
+            if (escolha < 0) return; 
+
+            double resultado;
+            switch (escolha) {
+                case 0: // +
+                    resultado = n1 + n2;
+                    break;
+                case 1: // -
+                    resultado = n1 - n2;
+                    break;
+                case 2: // ×
+                    resultado = n1 * n2;
+                    break;
+                case 3: // ÷
+                    if (n2 == 0) {
+                        JOptionPane.showMessageDialog(null, "Erro: divisão por zero não é permitida.");
+                        return;
+                    }
+                    resultado = n1 / n2;
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Operação inválida.");
+                    return;
+            }
+
+            DecimalFormat df = new DecimalFormat("#.####");
+            JOptionPane.showMessageDialog(null, "Resultado: " + df.format(resultado));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Entrada inválida. Use números válidos (ex.: 12.5).");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getMessage());
+        }
+    }
+}
