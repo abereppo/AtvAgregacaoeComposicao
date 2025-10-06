@@ -1,0 +1,38 @@
+/*
+1:
+
+ → Agregação:
+ - Em um Curso, encontramos diversos Professores (um Professor leciona em vários cursos).
+ - Um Departamento conta com vários Funcionários (funcionários são alocados a diferentes departamentos).
+
+ → Composição:
+ - Todo Carro contém um Motor (ao descartar o carro, o motor perde o sentido).
+ - Uma Casa é formada por Cômodos (os cômodos só fazem sentido dentro da casa).
+
+------------------------------------------------------------
+
+2:
+
+ → Classe final:
+ - Impede que outras classes a estendam por herança.
+
+ → Atributo final:
+ - Seu valor permanece fixo após a atribuição inicial (torna-se uma constante).
+
+------------------------------------------------------------
+
+3:
+
+ → Métodos estáticos estão vinculados à classe, não ao objeto.
+ Assim, invocá-los não requer criar uma instância,
+ otimizando o uso da memória e simplificando o uso de funções auxiliares.
+
+------------------------------------------------------------
+
+4:
+
+ → equals() — verifica a igualdade entre dois objetos.
+ → clone() — gera uma réplica do objeto.
+ → toString() — produz uma representação textual do objeto.
+ → hashCode() — devolve um código numérico usado em estruturas de dados (como HashMap).
+*/
